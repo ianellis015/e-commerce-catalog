@@ -4,11 +4,12 @@ import { ThemeProvider } from 'styled-components';
 import { lightTheme, darkTheme } from './theme';
 import styled from "styled-components";
 import { GlobalStyles } from './globalStyles';
-import './App.css'
+import Home from './pages/Home/Home';
+import './App.css';
 
 
 export default function App() {
-  // Defining our state hooks
+  // Defining my state hooks
   const [theme, setTheme] = useState('light');
   const themeMode = theme === 'light' ? lightTheme : darkTheme;
 
@@ -37,11 +38,10 @@ export default function App() {
     <ThemeProvider theme={themeMode}>
       <>
         <GlobalStyles />
-        <div className="header">
-          <h1>NestShop</h1>
-          <button onClick={toggleTheme}>Toggle Theme</button>
-          <p>Check the console to see the products!</p>
-        </div>
+        <Home theme={theme} toggleTheme={toggleTheme} />
+        
+          {/* <button onClick={toggleTheme}>Toggle Theme</button> */}
+          
         </>
     </ThemeProvider>
   );
