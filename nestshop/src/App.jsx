@@ -11,6 +11,7 @@ import './App.css';
 export default function App() {
   // Defining my state hooks
   const [theme, setTheme] = useState('light');
+  const [products, setProducts] = useState([]);
   const themeMode = theme === 'light' ? lightTheme : darkTheme;
 
   const toggleTheme = () => {
@@ -20,11 +21,12 @@ export default function App() {
   useEffect(() => {
   async function loadProducts() {
     try {
-      const all = await fetchAllProducts();
-      console.log("Fetched products:", all);
+      const allProducts = await fetchAllProducts();
+      setProducts(allProducts)
+      console.log("Fetched products:", allproducts);
 
-      const one = await fetchProductById("1");
-      console.log("Fetched product with ID 1:", one);
+      const oneProduct = await fetchProductById("1");
+      console.log("Fetched product with ID 1:", oneProduct);
     } catch (err) {
       console.error("API error:", err.message);
       console.error(err);
@@ -38,10 +40,10 @@ export default function App() {
     <ThemeProvider theme={themeMode}>
       <>
         <GlobalStyles />
-        <Home theme={theme} toggleTheme={toggleTheme} />
+        <Home theme={theme} toggleTheme={toggleTheme} products={products} />
         
           {/* <button onClick={toggleTheme}>Toggle Theme</button> */}
-          
+
         </>
     </ThemeProvider>
   );
