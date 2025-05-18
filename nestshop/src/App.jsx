@@ -23,10 +23,7 @@ export default function App() {
     try {
       const allProducts = await fetchAllProducts();
       setProducts(allProducts)
-      console.log("Fetched products:", allproducts);
-
-      const oneProduct = await fetchProductById("1");
-      console.log("Fetched product with ID 1:", oneProduct);
+      console.log("Fetched products:", allProducts);
     } catch (err) {
       console.error("API error:", err.message);
       console.error(err);
@@ -41,8 +38,7 @@ export default function App() {
       <>
         <GlobalStyles />
         <Home theme={theme} toggleTheme={toggleTheme} products={products} />
-        
-          {/* <button onClick={toggleTheme}>Toggle Theme</button> */}
+
 
         </>
     </ThemeProvider>
