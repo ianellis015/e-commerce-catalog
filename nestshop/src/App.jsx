@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { fetchAllProducts, fetchProductById } from './api/products';
 import { ThemeProvider } from 'styled-components';
 import { lightTheme, darkTheme } from './theme';
 import styled from "styled-components";
 import { GlobalStyles } from './globalStyles';
 import Home from './pages/Home/Home';
+import ProductPage from './pages/product/ProductPage';
 import './App.css';
+
 
 
 export default function App() {
@@ -35,12 +38,13 @@ export default function App() {
 
   return (
     <ThemeProvider theme={themeMode}>
-      <>
         <GlobalStyles />
-        <Home theme={theme} toggleTheme={toggleTheme} products={products} />
-
-
-        </>
+        <Router>
+          <Routes>
+            <Route path="/" element={<Home theme={theme} toggleTheme={toggleTheme} products={products} />} />
+            <Route path="/product/:id" element={<ProductPage />} />
+          </Routes>
+        </Router>
     </ThemeProvider>
   );
 }
