@@ -38,12 +38,13 @@ const NavItem = styled.div`
   cursor: pointer;
 `
 
-export default function Navbar({ theme, toggleTheme, onCartClick }) {
+export default function Navbar({ theme, toggleTheme, onCartClick, onFilterSelect }) {
     return (
         <Nav>
       <h2>NestShop</h2>
+
       {/* Home button */}
-       <NavItem>
+       <NavItem onClick={() => onFilterSelect(null)}> {/* clicking home clears filters */}
         <img
           src={theme === 'light' ? lightHome : darkHome}
           width="24"
@@ -73,7 +74,7 @@ export default function Navbar({ theme, toggleTheme, onCartClick }) {
             Categories
         </NavItem>
 
-        <NavItem>
+        <NavItem onClick={() => onFilterSelect("Apparel")}>
             <img
           src={theme === 'light' ? lightTag : darkTag}
           width="24"
@@ -82,7 +83,7 @@ export default function Navbar({ theme, toggleTheme, onCartClick }) {
             Apparrel
         </NavItem>
 
-        <NavItem>
+        <NavItem onClick={() => onFilterSelect("Accessories")}>
             <img
           src={theme === 'light' ? lightTag : darkTag}
           width="24"
@@ -91,7 +92,7 @@ export default function Navbar({ theme, toggleTheme, onCartClick }) {
             Accessories
         </NavItem>
 
-        <NavItem>
+        <NavItem onClick={() => onFilterSelect("Electronics")}>
             <img
           src={theme === 'light' ? lightTag : darkTag}
           width="24"
