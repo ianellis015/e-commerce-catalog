@@ -14,6 +14,13 @@ export default function ProductPage() {
         loadProduct();
     }, [id]);
 
+    // add item to cart using local storage:
+    // Local Storage has three main methods
+    /*
+    •	localStorage.getItem(key) – retrieves a string by key
+	•	localStorage.setItem(key, value) – saves a key-value string pair
+	•	localStorage.removeItem(key) – deletes the key
+    */
     const addToCart = () => {
         const cart = JSON.parse(localStorage.getItem('cart')) || {};
 

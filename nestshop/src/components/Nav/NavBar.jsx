@@ -38,7 +38,7 @@ const NavItem = styled.div`
   cursor: pointer;
 `
 
-export default function Navbar({ theme, toggleTheme }) {
+export default function Navbar({ theme, toggleTheme, onCartClick }) {
     return (
         <Nav>
       <h2>NestShop</h2>
@@ -52,7 +52,7 @@ export default function Navbar({ theme, toggleTheme }) {
         Home
        </NavItem>
 
-       <NavItem>
+       <NavItem onClick={onCartClick}>
           <img
           src={theme === 'light' ? lightCart : darkCart}
           width="24"
