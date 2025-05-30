@@ -9,6 +9,7 @@ import darkTag from '../../assets/dark-tag.svg';
 import lightCart from '../../assets/light-cart.svg';
 import darkCart from '../../assets/dark-cart.svg';
 
+
 const Nav = styled.nav`
   padding: 1rem;
   display: flex;
@@ -36,12 +37,30 @@ const NavItem = styled.div`
   gap: 0.5rem;
   margin-top:2rem;
   cursor: pointer;
-`
+  transition: transform 0.3s ease;
+`;
+
+const AnimatedNavItem = styled(NavItem)`
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateX(8px);
+  }
+`;
+
+const Heading = styled.h2`
+  background: linear-gradient(to bottom right, #2563eb, #4f46e5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  font-size: 30px;
+`;
 
 export default function Navbar({ theme, toggleTheme, onCartClick, onFilterSelect }) {
     return (
         <Nav>
-      <h2>NestShop</h2>
+      <Heading>NestShop</Heading>
 
       {/* Home button */}
        <NavItem onClick={() => onFilterSelect(null)}> {/* clicking home clears filters */}
@@ -74,32 +93,32 @@ export default function Navbar({ theme, toggleTheme, onCartClick, onFilterSelect
             Categories
         </NavItem>
 
-        <NavItem onClick={() => onFilterSelect("Apparel")}>
+        <AnimatedNavItem onClick={() => onFilterSelect("Apparel")}>
             <img
           src={theme === 'light' ? lightTag : darkTag}
           width="24"
           height="24"
         />
             Apparrel
-        </NavItem>
+        </AnimatedNavItem>
 
-        <NavItem onClick={() => onFilterSelect("Accessories")}>
+        <AnimatedNavItem onClick={() => onFilterSelect("Accessories")}>
             <img
           src={theme === 'light' ? lightTag : darkTag}
           width="24"
           height="24"
         />
             Accessories
-        </NavItem>
+        </AnimatedNavItem>
 
-        <NavItem onClick={() => onFilterSelect("Electronics")}>
+        <AnimatedNavItem onClick={() => onFilterSelect("Electronics")}>
             <img
           src={theme === 'light' ? lightTag : darkTag}
           width="24"
           height="24"
         />
             Electronics
-        </NavItem>
+        </AnimatedNavItem>
 
         </Nav>
     );

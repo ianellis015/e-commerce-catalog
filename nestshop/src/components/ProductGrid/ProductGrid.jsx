@@ -21,7 +21,7 @@ export default function ProductGrid({ products }) {
                 >
                     <img src={product.image} alt={product.name} width="100" />
                     <h3>{product.name}</h3>
-                    <p>${product.price}</p>
+                    <h4>${product.price}</h4>
                     </div>
             ))}
         </div>
