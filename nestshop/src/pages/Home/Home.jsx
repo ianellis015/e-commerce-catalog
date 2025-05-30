@@ -20,14 +20,18 @@ export default function Home({ theme, toggleTheme, products }) {
 <div className="content">
     <Navbar 
         theme={theme}
-        toggleTheme={toggleTheme} 
+        toggleTheme={toggleTheme}
         onCartClick={onCartClick}
         onFilterSelect={(category) => setSelectedCategory(category)}/>
     <div className="body-content">
-        {!selectedCategory && <FeaturedProduct products={products} />}
+        {!selectedCategory && (
+            <div className="featured-container">
+                <FeaturedProduct products={products} />
+            </div>
+        )}
           <ProductGrid products={filteredProducts} />
           </div>
-          <Cart isOpen={showCartModal} onClose={() => setShowCartModal(false)} />
+          <Cart isOpen={showCartModal} onClose={() => setShowCartModal(false)} theme={theme} />
         </div>
         );
     }

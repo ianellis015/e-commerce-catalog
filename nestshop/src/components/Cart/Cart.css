@@ -1,0 +1,37 @@
+.cart-header h2 {
+  background-image: linear-gradient(to bottom right, #2563eb, #4f46e5);  /* Gradient */
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  
+}
+
+.quantity-controller {
+    background: linear-gradient(to bottom right, #2563eb, #4f46e5);
+    border: none;
+    border-radius: 15px;
+    padding: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #fff;
+}
+
+.remove-button {
+    background: linear-gradient(to right, #BD3F32, #CB356B);
+    border-radius: 10px;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+
+}
+
+.close-modal {
+   background: linear-gradient(to bottom right, #2563eb, #4f46e5);
+    border: none;
+    border-radius: 15px;
+    padding: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #fff;
+}

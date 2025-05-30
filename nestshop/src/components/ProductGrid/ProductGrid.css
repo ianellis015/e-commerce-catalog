@@ -4,18 +4,40 @@
     flex-wrap: wrap;
     gap: 1rem;
     justify-content: flex-start;
-    width: 100%
+    width: 100%;
 }
 .product-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(to bottom right, #2563eb, #4f46e5);
 }
 
 .product-card img {
     width: 100%;
     overflow: hidden;
 }
+
+.product-card h3 {
+    background: #fff;
+    padding: 10px;
+    border-radius: 25px;
+    color:#2563eb;
+}
+
+.product-card h4 {
+    margin-top: 0;
+    color: #fff;
+}
+
+/* .product-card h3, 
+.product-card p {
+    margin-left: 5px;
+} */
 
 .product-card:hover {
     transform: translateY(-4px);

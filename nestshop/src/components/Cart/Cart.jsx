@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { lightTheme, darkTheme } from '../../theme';
+import trashIcon from '../../assets/trash-icon.svg';
+import './Cart.css'
 
-export default function Cart({ isOpen, onClose }) {
+export default function Cart({ isOpen, onClose, theme }) {
     const [cartItems, setCartItems] = useState([]);
+    const themeMode = theme === 'light' ? lightTheme : darkTheme;
 
     // Load cart data from local storage
     useEffect(() => {
@@ -60,13 +64,16 @@ export default function Cart({ isOpen, onClose }) {
         >
             <div
                 style={{
-                    backgroundColor: 'white',
+                    backgroundColor: themeMode.background,
+                    color: themeMode.text,
                     padding: '2rem',
-                    borderRadius: '8px',
+                    borderRadius: '15px',
                     minWidth: '300px'
                 }}
             >
-                <h2>Your Cart</h2>
+                <div className="cart-header">
+                    <h2>Your Cart</h2>
+                </div>
                 {cartItems.length === 0 ? (
                     <p>Uh Oh...Your cart is empty 😢</p>
                 ) : (
@@ -76,18 +83,18 @@ export default function Cart({ isOpen, onClose }) {
                             <p>Price: ${item.price}</p>
                             <p>Quantity: {item.quantity}</p>
                             <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
-                                <button onClick={() => decrement(item.id)}>-</button>
+                                <button className="quantity-controller" onClick={() => decrement(item.id)}>-</button>
                                 <span>{item.quantity}</span>
-                                <button onClick={() => increment(item.id)}>+</button>
-                                <button onClick={() => removeItem(item.id)} style={{ marginLeft: '1rem' }}>
-                                    Remove
+                                <button className="quantity-controller" onClick={() => increment(item.id)}>+</button>
+                                <button className="remove-button" onClick={() => removeItem(item.id)} style={{ marginLeft: '1rem' }}>
+                                    <img src={trashIcon} alt="Remove Item" width="20" height="20" />
                                 </button>
                             </div>
                         </div>
                     ))
                 )}
                 <h3>Total: ${total.toFixed(2)}</h3>
-                <button onClick={onClose}>Close</button>
+                <button className="close-modal" onClick={onClose}>Close</button>
             </div>
         </div>
     );
