@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import { fetchAllProducts, fetchProductById } from './api/products';
 import { ThemeProvider } from 'styled-components';
 import { lightTheme, darkTheme } from './theme';
