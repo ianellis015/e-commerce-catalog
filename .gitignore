@@ -1,0 +1,30 @@
+# 📦 Root Git Ignore - e-commerce-catalog
+
+# Ignore logs
+logs
+*.log
+npm-debug.log*
+
+# Dependency directories (prevent duplicate nesting)
+node_modules/
+
+# Ignore system files
+.DS_Store
+
+# Ignore editor settings
+.vscode/
+.idea/
+
+# Ignore build output (if any builds happen at root)
+dist/
+build/
+
+# Ignore backup files
+*.swp
+*.swo
+*.bak
+*.tmp
+
+# Prevent pushing env or config
+.env
+.env.*
