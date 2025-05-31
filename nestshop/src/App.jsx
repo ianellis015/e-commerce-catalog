@@ -7,7 +7,6 @@ import styled from "styled-components";
 import { GlobalStyles } from './globalStyles';
 import Home from './pages/Home/Home';
 import ProductPage from './pages/product/ProductPage';
-import './App.css';
 
 
 

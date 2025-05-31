@@ -68,12 +68,18 @@ export default function Cart({ isOpen, onClose, theme }) {
                     color: themeMode.text,
                     padding: '2rem',
                     borderRadius: '15px',
-                    minWidth: '300px'
+                    minWidth: '300px',
+                    maxHeight: '50vh',
+                    display: 'flex',
+                    flexDirection: 'column',
                 }}
             >
                 <div className="cart-header">
                     <h2>Your Cart</h2>
                 </div>
+
+                {/* Scrollable part of Modal */}
+                <div className="cart-items-container">
                 {cartItems.length === 0 ? (
                     <p>Uh Oh...Your cart is empty 😢</p>
                 ) : (
@@ -93,8 +99,13 @@ export default function Cart({ isOpen, onClose, theme }) {
                         </div>
                     ))
                 )}
+                </div>
+
+                {/* Cart Modal Footer */}
+            <div className="cart-footer">
                 <h3>Total: ${total.toFixed(2)}</h3>
                 <button className="close-modal" onClick={onClose}>Close</button>
+              </div>
             </div>
         </div>
     );
