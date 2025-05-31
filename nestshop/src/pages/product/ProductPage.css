@@ -56,3 +56,18 @@
 
     border-color: transparent;
 }
+
+.back-button {
+    background: transparent;
+    border-color:white;
+    border-style: solid;
+    border-radius: 5px;
+    padding: 5px 15px 5px 15px;
+    cursor: pointer;
+}
+
+.back-button:hover {
+    background: #e3e2e23b;
+    transform: scale(1.05);
+    transition: transform 0.2s ease-in-out;
+}

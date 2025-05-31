@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { fetchProductById } from '../../api/products';
+import BackButton from '../../assets/Back-Button.svg';
 import './ProductPage.css';
 
 export default function ProductPage() {
     const { id } = useParams();
     const [product, setProduct] = useState(null);
+    const navigate = useNavigate();
+    
 
     useEffect(() => {
         async function loadProduct() {
@@ -40,25 +43,28 @@ export default function ProductPage() {
 
     if (!product) return <p>Loading...</p>;
     return (
-        <div className="product-page-container">
-            <div
-                className="product-page-card"
-                style={{ padding: '2rem' }}>
-                <div className="info-container">
-                    <h1>{product.name}</h1>
-                    <h3>{product.description}</h3>
-                    <h1>${product.price}</h1>
-                    <button 
-                        className="add-to-cart"
-                        onClick={addToCart}
-                        >
-                        Add to Cart
-                    </button>
-                </div>
-                <div className="img-container">
-                    <img src={product.image} alt={product.name} width="200" />
+            <div className="product-page-container">
+                <div
+                    className="product-page-card"
+                    style={{ padding: '2rem' }}>
+                    <div className="info-container">
+                        <button className="back-button" onClick={() => navigate(-1)}>
+                            <img src={BackButton} alt="Go Back" />
+                        </button>
+                        <h1>{product.name}</h1>
+                        <h3>{product.description}</h3>
+                        <h1>${product.price}</h1>
+                        <button 
+                            className="add-to-cart"
+                            onClick={addToCart}
+                            >
+                            Add to Cart
+                        </button>
+                    </div>
+                    <div className="img-container">
+                        <img src={product.image} alt={product.name} width="200" />
+                    </div>
                 </div>
             </div>
-        </div>
     )
 }
