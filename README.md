@@ -1,6 +1,6 @@
 # 🛒 NestShop - E-Commerce Catalog (React + Vite)
 
-NestShop is a React e-commerce catalog built with Vite, React Router, and Styled Components. Developed as technical assessment during my Digital Nest Internship, it allows users to browse, view, and add products to a cart — with an appealing UI and light/dark theme for accesibility support.
+NestShop is a React e-commerce catalog built with Vite, React Router, and Styled Components. Developed as a technical assessment during my Digital Nest Internship, it allows users to browse, view, and add products to a cart — with an appealing UI and light/dark theme for accesibility support.
 ---
 
 
